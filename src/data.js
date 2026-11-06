@@ -226,16 +226,6 @@ export const DESTINATIONS = [
     image: "/images/mhatarichi-chul.jpg",
     caption: "Natural sea blowhole erupting ocean water spray",
     position: "object-center"
-  },
-  {
-    id: "triangle-rock-canal",
-    title: "Triangle-Shape Rock Canal",
-    packageGroup: "Lighthouse Safari",
-    category: "lighthouses",
-    categoryName: "Lighthouses & Rocks",
-    image: "/images/Gallery1.jpg",
-    caption: "Narrow triangular rock passage explored by safari boat",
-    position: "object-center"
   }
 ];
 
