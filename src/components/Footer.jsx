@@ -16,7 +16,7 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
-            <Logo size="large" isLight={true} />
+            <Logo variant="footer" />
             
             <p className="text-xs sm:text-sm text-slate-300 max-w-sm font-light mt-4 leading-relaxed">
               Official boat safaris and coastal resort bookings at Devbag Sangam, Malvan. Experience the best of Maharashtra's marine wonders from backwaters to open ocean.

@@ -47,14 +47,14 @@ export default function Navbar() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-3 border-b border-slate-100' 
-          : 'bg-white/90 backdrop-blur-sm py-4 border-b border-white/20'
+          ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 md:py-3 border-b border-slate-100' 
+          : 'bg-gradient-to-b from-navy-950/80 via-navy-950/30 to-transparent py-2.5 md:py-3 border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between min-h-[48px] md:min-h-[52px]">
           {/* Logo */}
-          <Logo isLight={false} />
+          <Logo variant="navbar" isScrolled={isScrolled} />
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-7 lg:space-x-9">
@@ -65,7 +65,9 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={`text-sm lg:text-base font-medium tracking-wide transition-colors relative group py-1 ${
-                    isActive ? 'text-navy font-bold' : 'text-slate-600 hover:text-navy'
+                    isScrolled
+                      ? (isActive ? 'text-navy font-bold' : 'text-slate-600 hover:text-navy')
+                      : (isActive ? 'text-white font-bold drop-shadow' : 'text-white/90 hover:text-white drop-shadow-sm')
                   }`}
                 >
                   {link.name}
@@ -83,7 +85,9 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center space-x-3">
             <a
               href="tel:9370208843"
-              className="inline-flex items-center space-x-1.5 text-navy-800 hover:text-navy text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors"
+              className={`inline-flex items-center space-x-1.5 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors ${
+                isScrolled ? 'text-navy-800 hover:text-navy' : 'text-white hover:text-oceanTeal-light drop-shadow-sm'
+              }`}
               title="Call Vishal Dongre"
             >
               <Phone className="w-4 h-4 text-brandRed" />
@@ -101,16 +105,18 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Hamburger Button */}
-          <div className="flex md:hidden items-center space-x-2">
+          <div className="flex md:hidden items-center space-x-2 flex-shrink-0">
             <a
               href="#packages"
-              className="bg-brandRed text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm sm:hidden"
+              className="bg-brandRed hover:bg-brandRed-hover text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm sm:hidden transition-all flex-shrink-0"
             >
               Book Now
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-navy hover:bg-slate-100 transition-colors focus:outline-none"
+              className={`p-1.5 sm:p-2 rounded-lg transition-colors focus:outline-none ${
+                isScrolled ? 'text-navy hover:bg-slate-100' : 'text-white hover:bg-white/10'
+              }`}
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
