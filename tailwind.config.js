@@ -31,6 +31,7 @@ export default {
       },
       fontFamily: {
         heading: ['"Oswald"', '"Bebas Neue"', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Poppins"', '"Inter"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
