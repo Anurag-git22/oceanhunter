@@ -49,7 +49,7 @@ export default function DestinationsGallery() {
           </div>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-md font-light text-left md:text-right">
-            High-definition glimpses of Malvan's emerald backwaters, open ocean pods & offshore lighthouses.
+            High-definition real photos of all safari spots across Devbag, Bhogve, Dolphin waters & offshore lighthouses.
           </p>
         </div>
 
@@ -86,11 +86,8 @@ export default function DestinationsGallery() {
             - 2 cols on mobile, 3 cols on md, 4 cols on lg
             - gap 12px (gap-3) mobile, 16px (gap-4) desktop
             - Exactly aspect-[4/5] on mobile, aspect-[3/4] on desktop
-            - If filter has fewer tiles, centers rows cleanly
         */}
-        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 ${
-          filteredItems.length < 4 ? 'justify-center' : ''
-        }`}>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {filteredItems.map((item, index) => (
             <div
               key={item.id}
@@ -109,8 +106,8 @@ export default function DestinationsGallery() {
                 }`}
               />
 
-              {/* Bottom Gradient Overlay from-black/75 to transparent so text is easily readable */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent transition-opacity duration-300 group-hover:from-black/90 pointer-events-none" />
+              {/* Bottom Gradient Overlay from-black/85 to transparent */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:from-black/95 pointer-events-none" />
 
               {/* Quick Zoom Icon (Desktop Hover) */}
               <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 rounded-full bg-black/60 backdrop-blur-sm text-white pointer-events-none">
@@ -120,7 +117,7 @@ export default function DestinationsGallery() {
               {/* Text Overlay: Title at least 16px mobile & 18px desktop, caption 12px line-clamp-1 */}
               <div className="relative z-10 p-3 sm:p-4 transition-transform duration-300 group-hover:-translate-y-0.5">
                 <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-oceanTeal-light block mb-0.5">
-                  {item.categoryName}
+                  {item.packageGroup || item.categoryName}
                 </span>
 
                 <h3 className="font-heading text-base sm:text-lg font-bold uppercase text-white tracking-wide leading-tight line-clamp-2 drop-shadow-sm">
@@ -138,7 +135,7 @@ export default function DestinationsGallery() {
         {/* Caption Hint at bottom */}
         <div className="mt-8 text-center text-xs text-slate-400 flex items-center justify-center space-x-2">
           <Sparkles className="w-3.5 h-3.5 text-oceanTeal-light" />
-          <span>Tap any photo to view full screen • Swipe left/right on mobile</span>
+          <span>Tap any safari spot to view in full screen • Swipe left/right on mobile</span>
         </div>
 
       </div>

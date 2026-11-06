@@ -70,7 +70,7 @@ export default function Lightbox({
       >
         <div className="text-white">
           <span className="text-xs font-semibold text-oceanTeal-light uppercase tracking-widest block">
-            {currentItem.categoryName || currentItem.category || "Malvan Coast Safari"}
+            {currentItem.packageGroup ? `${currentItem.packageGroup} • ${currentItem.categoryName}` : (currentItem.categoryName || currentItem.category || "Malvan Coast Safari")}
           </span>
           <h4 className="text-lg sm:text-xl font-heading font-bold uppercase tracking-wide">
             {currentItem.title}

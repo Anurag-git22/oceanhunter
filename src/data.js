@@ -81,19 +81,31 @@ export const PACKAGES = [
 ];
 
 export const GALLERY_FILTERS = [
-  { id: "all", label: "All" },
+  { id: "all", label: "All Points" },
   { id: "backwater", label: "Backwater" },
-  { id: "beaches", label: "Beaches" },
+  { id: "beaches", label: "Beaches & Islands" },
   { id: "dolphins", label: "Dolphins" },
-  { id: "lighthouses", label: "Lighthouses" }
+  { id: "lighthouses", label: "Lighthouses & Rocks" }
 ];
 
-// Exactly 12 unique real photos (4x3 desktop, 3x4 tablet, 2x6 mobile)
-// No duplicates, 1-line concise captions, and explicit object-position for lighthouses
+// All points from the safari packages that have real existing photos
+// (Turtle Rock View is excluded as no real image exists)
 export const DESTINATIONS = [
+  // 1. Basic Package Points
+  {
+    id: "tsunami-island",
+    title: "Tsunami Island",
+    packageGroup: "Basic Package",
+    category: "beaches",
+    categoryName: "Beaches & Islands",
+    image: "/images/tsunami-clean.jpg",
+    caption: "Vibrant sandbar island in Karli river backwaters",
+    position: "object-center"
+  },
   {
     id: "mini-kerala",
     title: "Mini Kerala",
+    packageGroup: "Basic Package",
     category: "backwater",
     categoryName: "Backwater",
     image: "/images/backwater.jpg",
@@ -101,8 +113,9 @@ export const DESTINATIONS = [
     position: "object-center"
   },
   {
-    id: "mangrove-safari",
-    title: "Mangrove Channel",
+    id: "mangrove-island",
+    title: "Mangrove Island",
+    packageGroup: "Basic Package",
     category: "backwater",
     categoryName: "Backwater",
     image: "/images/MangroveSafari-clean.jpg",
@@ -110,95 +123,118 @@ export const DESTINATIONS = [
     position: "object-center"
   },
   {
+    id: "crocodile-rock",
+    title: "Open Mouth Crocodile Rock",
+    packageGroup: "Basic Package",
+    category: "backwater",
+    categoryName: "Backwater",
+    image: "/images/crocodile-point.jpg",
+    caption: "Natural rock formation shaped like an open-mouthed crocodile",
+    position: "object-center"
+  },
+  {
     id: "sangam-point",
     title: "Sangam Point",
+    packageGroup: "Basic Package",
     category: "beaches",
-    categoryName: "Beaches",
+    categoryName: "Beaches & Islands",
     image: "/images/SangamPoint-clean.jpg",
     caption: "Where the calm river meets the open sea",
     position: "object-center"
   },
   {
-    id: "devbagh-beach",
-    title: "Devbag Shoreline",
-    category: "beaches",
-    categoryName: "Beaches",
-    image: "/images/devbagh-beach.jpg",
-    caption: "Pristine golden sandbar on the Malvan coast",
+    id: "seagull-island",
+    title: "Seagull Island",
+    packageGroup: "Basic Package",
+    category: "backwater",
+    categoryName: "Backwater",
+    image: "/images/Seagull.jpg",
+    caption: "Flocks of migrating seagulls over tidal sandbars",
     position: "object-center"
   },
+
+  // 2. Semi Premium Package Points
   {
     id: "bhogwe-beach",
-    title: "Bhogwe Beach",
+    title: "Bhogve Beach",
+    packageGroup: "Semi Premium",
     category: "beaches",
-    categoryName: "Beaches",
+    categoryName: "Beaches & Islands",
     image: "/images/Bhogwe-clean.jpg",
     caption: "Untouched white sand beach and sea cliffs",
     position: "object-center"
   },
   {
-    id: "tsunami-island",
-    title: "Tsunami Island",
+    id: "devbag-beach",
+    title: "Devbag Beach",
+    packageGroup: "Semi Premium",
     category: "beaches",
-    categoryName: "Beaches",
-    image: "/images/tsunami-clean.jpg",
-    caption: "Vibrant island sandbar for watersports",
+    categoryName: "Beaches & Islands",
+    image: "/images/devbagh-beach.jpg",
+    caption: "Pristine golden sandbar on the Malvan coast",
     position: "object-center"
   },
   {
-    id: "dolphin-point-1",
+    id: "dolphin-point",
     title: "Dolphin Point",
+    packageGroup: "Semi Premium",
     category: "dolphins",
     categoryName: "Dolphins",
     image: "/images/dolphin-1.jpg",
-    caption: "Bottlenose dolphins jumping near the creek",
+    caption: "Bottlenose dolphins jumping near the creek mouth",
     position: "object-center",
     isDolphin: true
   },
   {
-    id: "dolphin-point-2",
-    title: "Dolphin Safari",
-    category: "dolphins",
-    categoryName: "Dolphins",
-    image: "/images/dolphin-2.jpg",
-    caption: "Wild dolphin pods leaping in open waters",
-    position: "object-center",
-    isDolphin: true
+    id: "nivti-rock",
+    title: "Nivti Rock",
+    packageGroup: "Semi Premium",
+    category: "lighthouses",
+    categoryName: "Lighthouses & Rocks",
+    image: "/images/Gallery3.jpg",
+    caption: "Dramatic sea rock channel amidst deep blue waters",
+    position: "object-center"
   },
+
+  // 3. Lighthouse Safari Package Points
   {
     id: "old-lighthouse",
-    title: "Old Lighthouse Rock",
+    title: "Old Lighthouse",
+    packageGroup: "Lighthouse Safari",
     category: "lighthouses",
-    categoryName: "Lighthouses",
+    categoryName: "Lighthouses & Rocks",
     image: "/images/old-lighthouse-1.jpg",
-    caption: "Historic stone beacon atop sea rocks",
-    position: "object-top" // lighthouse tower never cropped
+    caption: "Historic stone beacon atop offshore rocks",
+    position: "object-top"
   },
   {
     id: "new-lighthouse",
     title: "New Lighthouse",
+    packageGroup: "Lighthouse Safari",
     category: "lighthouses",
-    categoryName: "Lighthouses",
+    categoryName: "Lighthouses & Rocks",
     image: "/images/new-lighthouse.jpg",
     caption: "Active navigation beacon at Nivti Rocks",
-    position: "object-top" // lighthouse tower never cropped
-  },
-  {
-    id: "new-lighthouse-aerial",
-    title: "Nivti Rocks",
-    category: "lighthouses",
-    categoryName: "Lighthouses",
-    image: "/images/new-lighthouse-aerial.jpg",
-    caption: "Offshore rocky fortress rising from the deep",
-    position: "object-center"
+    position: "object-top"
   },
   {
     id: "mhatarichi-chul",
     title: "Mhatarichi Chul",
+    packageGroup: "Lighthouse Safari",
     category: "lighthouses",
-    categoryName: "Lighthouses",
+    categoryName: "Lighthouses & Rocks",
     image: "/images/mhatarichi-chul.jpg",
-    caption: "Natural sea blowhole erupting ocean spray",
+    caption: "Natural sea blowhole erupting ocean water spray",
+    position: "object-center"
+  },
+  {
+    id: "triangle-rock-canal",
+    title: "Triangle-Shape Rock Canal",
+    packageGroup: "Lighthouse Safari",
+    category: "lighthouses",
+    categoryName: "Lighthouses & Rocks",
+    image: "/images/Gallery1.jpg",
+    caption: "Narrow triangular rock passage explored by safari boat",
     position: "object-center"
   }
 ];
@@ -317,44 +353,5 @@ export const FAQS = [
     id: "faq-5",
     question: "Can we hire a private boat or customize stops?",
     answer: "Absolutely. We offer exclusive private boat charters for families, photography trips, and personalized itineraries on request."
-  }
-];
-
-export const TESTIMONIALS = [
-  {
-    id: "review-1",
-    isPlaceholder: true,
-    author: "Amit & Neha Sharma",
-    location: "Pune, Maharashtra",
-    trip: "Lighthouse Safari",
-    rating: 5,
-    text: "[PLACEHOLDER REVIEW] The Lighthouse Safari was the highlight of our Malvan vacation! Seeing dolphins jumping right beside our boat and the sea blowhole at Mhatarichi Chul was truly breathtaking."
-  },
-  {
-    id: "review-2",
-    isPlaceholder: true,
-    author: "Rohan Deshmukh",
-    location: "Mumbai, Maharashtra",
-    trip: "Semi Premium Package",
-    rating: 5,
-    text: "[PLACEHOLDER REVIEW] Vishal and Shubham are fantastic hosts. Very courteous, safety-first boatmen who know the Devbag waters inside out. The transition from Karli river to open sea is magical."
-  },
-  {
-    id: "review-3",
-    isPlaceholder: true,
-    author: "Pooja Kulkarni",
-    location: "Kolhapur, Maharashtra",
-    trip: "Basic Package + Devbag Stay",
-    rating: 5,
-    text: "[PLACEHOLDER REVIEW] Calm, palm-fringed waters of Mini Kerala and pristine sandbanks at Tsunami island. Clean rooms at the resort and delicious homemade food. Highly recommended!"
-  },
-  {
-    id: "review-4",
-    isPlaceholder: true,
-    author: "Girish & Family",
-    location: "Goa",
-    trip: "Lighthouse Safari",
-    rating: 5,
-    text: "[PLACEHOLDER REVIEW] We were lucky to spot three dolphins during the morning safari! The ancient Old Lighthouse rock is stunning. Safe jackets for children and very steady boat."
   }
 ];

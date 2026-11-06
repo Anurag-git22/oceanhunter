@@ -52,10 +52,10 @@ export default function PackageCard({ pkg }) {
           <span>{pkg.duration}</span>
         </div>
 
-        {/* Category Tag - FIXED: Clear of the top banner with no overlap */}
+        {/* Category Tag - Clear of the top banner with generous margin */}
         <div 
           className={`absolute right-3 z-10 inline-flex items-center bg-white/95 backdrop-blur-md text-navy-900 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm ${
-            pkg.isPopular ? 'top-10' : 'top-3'
+            pkg.isPopular ? 'top-11' : 'top-3'
           }`}
         >
           {pkg.tag}
