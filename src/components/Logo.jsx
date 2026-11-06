@@ -17,7 +17,7 @@ export default function Logo({ variant = "navbar", isScrolled = false, className
     return (
       <a 
         href="#home" 
-        className={`inline-flex items-center group select-none gap-3 sm:gap-3.5 ${className}`}
+        className={`inline-flex flex-col items-start group select-none ${className}`}
         aria-label="Ocean Hunter Home"
       >
         {/* Logo Block: Logo Image + Line + Tagline */}
@@ -41,21 +41,6 @@ export default function Logo({ variant = "navbar", isScrolled = false, className
             Resort & Room Booking
           </span>
         </div>
-
-        {/* Brand headline text beside logo */}
-        <div className="flex flex-col justify-center">
-          <div className="flex items-baseline tracking-tight font-heading font-bold uppercase leading-none">
-            <span className="text-brandRed text-2xl sm:text-3xl tracking-wider">
-              OCEAN
-            </span>
-            <span className="ml-1.5 text-white text-2xl sm:text-3xl tracking-wider">
-              HUNTER
-            </span>
-          </div>
-          <span className="text-[10px] sm:text-[11px] font-medium tracking-widest uppercase text-oceanTeal-light mt-1">
-            Backwater to Ocean
-          </span>
-        </div>
       </a>
     );
   }
@@ -64,7 +49,7 @@ export default function Logo({ variant = "navbar", isScrolled = false, className
   return (
     <a 
       href="#home" 
-      className={`inline-flex items-center group select-none gap-2 sm:gap-2.5 transition-all duration-300 ${className}`}
+      className={`inline-flex items-center group select-none transition-all duration-300 ${className}`}
       aria-label="Ocean Hunter Home"
     >
       {/* 
@@ -108,29 +93,6 @@ export default function Logo({ variant = "navbar", isScrolled = false, className
         >
           Resort & Room Booking
         </span>
-      </div>
-
-      {/* 
-        Restored headline/brand text beside the logo:
-        - Exactly as before: OCEAN (red) HUNTER (navy/white), font-heading, font-bold, uppercase.
-        - On screens < 380px, hidden to prevent any navbar overflow at 360px.
-        - On screens >= 380px, visible and crisp.
-      */}
-      <div className="hidden min-[380px]:flex flex-col justify-center">
-        <div className="flex items-baseline tracking-tight font-heading font-bold uppercase leading-none">
-          <span className="text-brandRed text-xl sm:text-2xl md:text-[26px] tracking-normal">
-            OCEAN
-          </span>
-          <span 
-            className={`ml-1.5 text-xl sm:text-2xl md:text-[26px] tracking-normal transition-colors duration-300 ${
-              isScrolled 
-                ? 'text-navy' 
-                : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]'
-            }`}
-          >
-            HUNTER
-          </span>
-        </div>
       </div>
     </a>
   );
