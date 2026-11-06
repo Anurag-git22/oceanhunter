@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { Menu, X, Phone, CalendarCheck } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { BRAND } from '../data';
 
 export default function Navbar() {
@@ -162,8 +163,10 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center space-x-2 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-brandRed to-red-600 text-white font-semibold text-sm shadow-md"
+                aria-label="Book on WhatsApp"
+                title="Book on WhatsApp"
               >
-                <CalendarCheck className="w-4 h-4" />
+                <FaWhatsapp className="w-4 h-4 text-white" />
                 <span>Book on WhatsApp</span>
               </a>
             </div>

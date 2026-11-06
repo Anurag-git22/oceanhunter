@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Clock, CheckCircle2, MessageCircle, Phone, Sparkles } from 'lucide-react';
+import { Clock, CheckCircle2, Phone, Sparkles } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { BRAND } from '../data';
 
 export default function PackageCard({ pkg }) {
@@ -107,8 +108,10 @@ export default function PackageCard({ pkg }) {
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.99]"
+            aria-label={`Book ${pkg.title} on WhatsApp`}
+            title="Book This Package on WhatsApp"
           >
-            <MessageCircle className="w-4 h-4" />
+            <FaWhatsapp className="w-4 h-4 text-white" />
             <span>Book This Package</span>
           </a>
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, MessageCircle, MapPin, Compass, Navigation, Clock, UserCheck } from 'lucide-react';
+import { Phone, MapPin, Compass, Navigation, Clock, UserCheck } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { BRAND } from '../data';
 
 export default function Contact() {
@@ -70,8 +71,10 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 active:scale-95"
+                aria-label="Book Directly on WhatsApp"
+                title="Chat on WhatsApp"
               >
-                <MessageCircle className="w-5 h-5" />
+                <FaWhatsapp className="w-5 h-5 text-white" />
                 <span>Book Directly on WhatsApp</span>
               </a>
             </div>

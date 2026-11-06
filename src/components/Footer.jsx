@@ -1,7 +1,8 @@
 import React from 'react';
 import Logo from './Logo';
 import { BRAND } from '../data';
-import { Phone, MessageCircle, MapPin, Heart, ArrowUp } from 'lucide-react';
+import { Phone, MapPin, Heart, ArrowUp } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -87,9 +88,11 @@ export default function Footer() {
                 href={BRAND.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-white/10 hover:bg-brandRed text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors border border-white/20"
+                className="inline-flex items-center space-x-2 bg-white/10 hover:bg-[#25D366] text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors border border-white/20"
+                aria-label="Chat on WhatsApp"
+                title="Chat on WhatsApp"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-oceanTeal-light" />
+                <FaWhatsapp className="w-4 h-4 text-[#25D366] group-hover:text-white" />
                 <span>WhatsApp: +91 9370208843</span>
               </a>
             </div>

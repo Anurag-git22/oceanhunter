@@ -1,5 +1,6 @@
 import React from 'react';
-import { BedDouble, MessageCircle, MapPin, CheckCircle, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { BedDouble, MapPin, CheckCircle, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { BRAND } from '../data';
 
 export default function ResortSection() {
@@ -62,8 +63,10 @@ export default function ResortSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95"
+                  aria-label="Enquire for Resort Rooms on WhatsApp"
+                  title="Enquire for Rooms on WhatsApp"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <FaWhatsapp className="w-4 h-4 text-white" />
                   <span>Enquire for Rooms</span>
                 </a>
 

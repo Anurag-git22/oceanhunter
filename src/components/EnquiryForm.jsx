@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Calendar, Users, Phone, User, Compass, MessageCircle, Navigation, CheckCircle2 } from 'lucide-react';
+import { Calendar, Users, Phone, User, Compass, Navigation, CheckCircle2 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { BRAND, PACKAGES } from '../data';
 
 export default function EnquiryForm() {
@@ -193,8 +194,10 @@ export default function EnquiryForm() {
               <button
                 type="submit"
                 className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95"
+                aria-label="Submit enquiry on WhatsApp"
+                title="Submit enquiry on WhatsApp"
               >
-                <MessageCircle className="w-5 h-5" />
+                <FaWhatsapp className="w-5 h-5 text-white" />
                 <span>Submit on WhatsApp</span>
               </button>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, MapPin, Compass, Navigation, ChevronDown } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { BRAND } from '../data';
 
 export default function Hero() {
@@ -72,6 +73,18 @@ export default function Hero() {
             >
               <Compass className="w-5 h-5" />
               <span>View Packages</span>
+            </a>
+
+            <a
+              href="https://wa.me/919370208843?text=Hi%20Ocean%20Hunter%2C%20I%20want%20to%20book%20a%20boat%20safari."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-[#25D366] hover:bg-[#20bd5a] active:bg-[#1da851] text-white font-semibold text-base sm:text-lg px-7 py-3.5 rounded-full transition-all duration-300 shadow-md hover:-translate-y-0.5"
+              aria-label="Chat on WhatsApp"
+              title="Chat on WhatsApp"
+            >
+              <FaWhatsapp className="w-5 h-5 text-white" />
+              <span>WhatsApp</span>
             </a>
 
             <a
