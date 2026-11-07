@@ -7,11 +7,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-navy-950 text-white select-none"
-      style={{
-        paddingTop: 'calc(var(--nav-h) + 24px)',
-        paddingBottom: 'calc(88px + env(safe-area-inset-bottom, 0px))'
-      }}
+      className="hero-mobile-layout relative min-h-[100svh] flex flex-col justify-end md:justify-center overflow-hidden bg-navy-950 text-white select-none"
     >
       {/* Background Image Container with Proper Fit & No Heavy Zoom */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -36,13 +32,13 @@ export default function Hero() {
       </div>
 
       {/* Main Content Container: max-w-7xl aligned with navbar */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-0 md:px-6 lg:px-8 md:my-auto">
         
-        {/* Content Block: Left-aligned on desktop, Centered on mobile with vertical gap-4 */}
-        <div className="max-w-3xl text-center md:text-left mx-auto md:mx-0 flex flex-col justify-center gap-3 sm:gap-4">
+        {/* Content Block: Left-aligned on desktop, Centered on mobile with custom spacing */}
+        <div className="w-full max-w-md md:max-w-3xl mx-auto md:mx-0 px-4 md:px-0 flex flex-col items-center md:items-start text-center md:text-left gap-0 md:gap-4">
           
-          {/* 1. Location Pill: Single line with truncation on mobile ("A/P Devbag, Tal. Malvan" + "Get Directions") */}
-          <div className="inline-flex items-center justify-center md:justify-start max-w-full overflow-hidden bg-white/15 hover:bg-white/20 backdrop-blur-md border border-white/25 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-slate-100 shadow-md">
+          {/* 1. Location Pill: Single line with truncation on mobile ("A/P Devbag, Tal. Malvan" + "Get Directions"), margin-bottom 20px */}
+          <div className="inline-flex items-center justify-center md:justify-start max-w-full overflow-hidden bg-white/15 hover:bg-white/20 backdrop-blur-md border border-white/25 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-slate-100 shadow-md mb-5 md:mb-0">
             <div className="flex items-center space-x-1.5 min-w-0 truncate">
               <MapPin className="w-3.5 h-3.5 text-brandRed flex-shrink-0" />
               <span className="truncate">A/P Devbag, Tal. Malvan</span>
@@ -59,21 +55,21 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* 2. Headline */}
-          <h1 className="font-heading font-extrabold text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.95] text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.8)]">
+          {/* 2. Headline: margin-bottom 10px on mobile */}
+          <h1 className="w-full font-heading font-extrabold text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.95] text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.8)] mb-2.5 md:mb-0">
             Backwater <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-brandRed to-orange-400">to Ocean</span>
           </h1>
 
-          {/* 3. Subline */}
-          <p className="font-sans text-sm sm:text-lg md:text-2xl font-light text-slate-100 tracking-wide max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-balance">
+          {/* 3. Subline: margin-bottom 24px on mobile */}
+          <p className="w-full font-sans text-sm sm:text-lg md:text-2xl font-light text-slate-100 tracking-wide max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-balance mb-6 md:mb-0">
             Boat safaris on the Malvan coast
           </p>
 
           {/* 4. Action Buttons:
-              - Mobile: exactly 2 buttons ("View Packages" red full width + "Call Now" glass full width), height 52px.
+              - Mobile: exactly 2 buttons ("View Packages" red full width + "Call Now" glass full width), height 52px, 12px gap between them, 24px margin-bottom.
               - Desktop: all 4 buttons ("View Packages", "WhatsApp", "Call Now", "Directions").
           */}
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2.5 sm:gap-3.5 w-full sm:w-auto my-1 sm:my-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 md:gap-3.5 w-full md:w-auto mb-6 md:mb-0 md:my-2">
             {/* View Packages (Red, full width on mobile, 52px height) */}
             <a
               href="#packages"
@@ -117,17 +113,17 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* 5. Info Strip: 3 compact cards in 1 row (grid-cols-3 gap-2), padding p-2.5, label 10px, value 13px */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-xl">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 sm:p-4 text-center md:text-left shadow-sm">
+          {/* 5. Info Strip: 3 cards in 1 row (grid-cols-3 gap-2 on mobile = 8px), same height for all three */}
+          <div className="grid grid-cols-3 gap-2 md:gap-4 w-full max-w-xl">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 sm:p-4 text-center md:text-left shadow-sm flex flex-col justify-center h-full">
               <p className="text-[10px] uppercase tracking-wider text-slate-300 font-medium">Island Safaris</p>
               <p className="text-[13px] sm:text-sm font-semibold text-white mt-0.5 leading-snug">Tsunami & Seagull</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 sm:p-4 text-center md:text-left shadow-sm">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 sm:p-4 text-center md:text-left shadow-sm flex flex-col justify-center h-full">
               <p className="text-[10px] uppercase tracking-wider text-slate-300 font-medium">Wildlife</p>
               <p className="text-[13px] sm:text-sm font-semibold text-white mt-0.5 leading-snug">Dolphin Sightings</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 sm:p-4 text-center md:text-left shadow-sm">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 sm:p-4 text-center md:text-left shadow-sm flex flex-col justify-center h-full">
               <p className="text-[10px] uppercase tracking-wider text-slate-300 font-medium">Adventure</p>
               <p className="text-[13px] sm:text-sm font-semibold text-white mt-0.5 leading-snug">2 Lighthouses</p>
             </div>

@@ -37,6 +37,18 @@
   }
 }
 
+/* Hero Section Mobile Layout (padding & positioning) */
+.hero-mobile-layout {
+  padding-top: calc(var(--nav-h) + 16px);
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .hero-mobile-layout {
+    padding-top: calc(var(--nav-h) + 24px);
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
