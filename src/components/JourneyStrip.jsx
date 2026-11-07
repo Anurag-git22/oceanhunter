@@ -36,12 +36,12 @@ export default function JourneyStrip() {
           {/* Connecting line (Desktop) */}
           <div className="hidden lg:block absolute top-1/2 left-12 right-12 h-0.5 bg-gradient-to-r from-teal-500 via-sky-500 to-brandRed -translate-y-6 z-0" />
 
-          {/* Grid of Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+          {/* Steps Carousel on mobile, Grid on desktop */}
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative z-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 pt-1 px-4 -mx-4 md:px-0 md:mx-0 no-scrollbar">
             {JOURNEY_STEPS.map((item, index) => (
               <div 
                 key={item.step}
-                className="bg-navy-950/80 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between group shadow-lg"
+                className="w-[82vw] max-w-[300px] md:w-auto flex-shrink-0 snap-center bg-navy-950/80 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between group shadow-lg"
               >
                 <div>
                   {/* Step Badge & Icon */}

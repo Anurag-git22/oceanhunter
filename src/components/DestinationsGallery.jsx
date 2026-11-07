@@ -82,17 +82,13 @@ export default function DestinationsGallery() {
           })}
         </div>
 
-        {/* Uniform Grid:
-            - 2 cols on mobile, 3 cols on md, 4 cols on lg
-            - gap 12px (gap-3) mobile, 16px (gap-4) desktop
-            - Exactly aspect-[4/5] on mobile, aspect-[3/4] on desktop
-        */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        {/* Gallery Cards: Side-scrollable snap carousel on mobile, Grid on tablet & desktop */}
+        <div className="flex md:grid md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth pb-4 pt-1 px-4 -mx-4 md:px-0 md:mx-0 no-scrollbar">
           {filteredItems.map((item, index) => (
             <div
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative rounded-xl overflow-hidden cursor-pointer bg-navy-900 border border-white/10 shadow-md hover:shadow-xl transition-all duration-300 aspect-[4/5] sm:aspect-[3/4] flex flex-col justify-end"
+              className="w-[70vw] max-w-[270px] flex-shrink-0 snap-center md:w-auto group relative rounded-xl overflow-hidden cursor-pointer bg-navy-900 border border-white/10 shadow-md hover:shadow-xl transition-all duration-300 aspect-[4/5] sm:aspect-[3/4] flex flex-col justify-end"
             >
               {/* Background Image: sensible object-position (e.g. object-top for lighthouses), 500ms hover scale */}
               <img

@@ -56,83 +56,81 @@ export default function Navbar() {
       )}
 
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 h-[var(--nav-h)] transition-all duration-300 ${
           isScrolled || mobileMenuOpen
-            ? 'bg-white shadow-md py-2.5 md:py-3 border-b border-slate-100' 
-            : 'bg-gradient-to-b from-navy-950/80 via-navy-950/30 to-transparent py-2.5 md:py-3 border-b border-transparent'
+            ? 'bg-white shadow-md border-b border-slate-100' 
+            : 'bg-gradient-to-b from-navy-950/80 via-navy-950/30 to-transparent border-b border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between min-h-[48px] md:min-h-[52px]">
-            {/* Logo */}
-            <Logo variant="navbar" isScrolled={isScrolled || mobileMenuOpen} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+          {/* Logo on the left */}
+          <Logo variant="navbar" isScrolled={isScrolled || mobileMenuOpen} />
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-7 lg:space-x-9">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className={`text-sm lg:text-base font-medium tracking-wide transition-colors relative group py-1 ${
-                      isScrolled
-                        ? (isActive ? 'text-navy font-bold' : 'text-slate-600 hover:text-navy')
-                        : (isActive ? 'text-white font-bold drop-shadow' : 'text-white/90 hover:text-white drop-shadow-sm')
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center space-x-7 lg:space-x-9">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-sm lg:text-base font-medium tracking-wide transition-colors relative group py-1 ${
+                    isScrolled
+                      ? (isActive ? 'text-navy font-bold' : 'text-slate-600 hover:text-navy')
+                      : (isActive ? 'text-white font-bold drop-shadow' : 'text-white/90 hover:text-white drop-shadow-sm')
+                  }`}
+                >
+                  {link.name}
+                  <span 
+                    className={`absolute bottom-0 left-0 h-0.5 bg-brandRed transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}
-                  >
-                    {link.name}
-                    <span 
-                      className={`absolute bottom-0 left-0 h-0.5 bg-brandRed transition-all duration-300 ${
-                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`}
-                    />
-                  </a>
-                );
-              })}
-            </nav>
+                  />
+                </a>
+              );
+            })}
+          </nav>
 
-            {/* Desktop Right CTAs */}
-            <div className="hidden sm:flex items-center space-x-3">
-              <a
-                href="tel:9370208843"
-                className={`inline-flex items-center space-x-1.5 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors ${
-                  isScrolled ? 'text-navy-800 hover:text-navy' : 'text-white hover:text-oceanTeal-light drop-shadow-sm'
-                }`}
-                title="Call Vishal Dongre"
-              >
-                <Phone className="w-4 h-4 text-brandRed" />
-                <span className="hidden lg:inline">93702 08843</span>
-                <span className="lg:hidden">Call</span>
-              </a>
+          {/* Desktop Right CTAs */}
+          <div className="hidden sm:flex items-center space-x-3">
+            <a
+              href="tel:9370208843"
+              className={`inline-flex items-center space-x-1.5 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors ${
+                isScrolled ? 'text-navy-800 hover:text-navy' : 'text-white hover:text-oceanTeal-light drop-shadow-sm'
+              }`}
+              title="Call Vishal Dongre"
+            >
+              <Phone className="w-4 h-4 text-brandRed" />
+              <span className="hidden lg:inline">93702 08843</span>
+              <span className="lg:hidden">Call</span>
+            </a>
 
-              <a
-                href="#packages"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <CalendarCheck className="w-4 h-4" />
-                <span>Book Now</span>
-              </a>
-            </div>
+            <a
+              href="#packages"
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <CalendarCheck className="w-4 h-4" />
+              <span>Book Now</span>
+            </a>
+          </div>
 
-            {/* Mobile Menu Hamburger Button */}
-            <div className="flex md:hidden items-center space-x-2 flex-shrink-0">
-              <a
-                href="#packages"
-                className="bg-brandRed hover:bg-brandRed-hover text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm sm:hidden transition-all flex-shrink-0"
-              >
-                Book Now
-              </a>
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`p-1.5 sm:p-2 rounded-lg transition-colors focus:outline-none ${
-                  isScrolled || mobileMenuOpen ? 'text-navy hover:bg-slate-100' : 'text-white hover:bg-white/10'
-                }`}
-                aria-label="Toggle navigation menu"
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
+          {/* Mobile Right: Book Now button & Hamburger vertically centered with 16px side padding */}
+          <div className="flex md:hidden items-center space-x-2 flex-shrink-0">
+            <a
+              href="#packages"
+              className="bg-brandRed hover:bg-brandRed-hover text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm sm:hidden transition-all flex-shrink-0"
+            >
+              Book Now
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`p-1.5 sm:p-2 rounded-lg transition-colors focus:outline-none ${
+                isScrolled || mobileMenuOpen ? 'text-navy hover:bg-slate-100' : 'text-white hover:bg-white/10'
+              }`}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
 
@@ -140,13 +138,13 @@ export default function Navbar() {
           Mobile Menu Panel:
           - Solid white background (bg-white, 100% opaque, no transparency, no blur)
           - Full width, directly under navbar, soft shadow (shadow-xl), rounded bottom corners (rounded-b-2xl)
-          - Max-height: calc(100svh - navbar height) with overflow-y-auto
+          - Max-height: calc(100svh - var(--nav-h)) with overflow-y-auto
           - Smooth open/close animation (slide down + fade, 200ms)
         */}
         {mobileMenuOpen && (
           <div 
             className="md:hidden absolute top-full left-0 right-0 w-full bg-white shadow-xl rounded-b-2xl overflow-y-auto border-t border-gray-100 animate-menu-slide-down"
-            style={{ maxHeight: 'calc(100svh - 68px)' }}
+            style={{ maxHeight: 'calc(100svh - var(--nav-h))' }}
           >
             <div className="flex flex-col">
               {navLinks.map((link) => {

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --nav-h: 72px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-h: 80px;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -12,6 +22,18 @@
     background-color: #0d0f2b;
     color: #1e293b;
     overflow-x: hidden;
+  }
+
+  /* Padding on mobile so footer is never hidden behind sticky bottom bar */
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: 72px;
+    }
+  }
+
+  /* Sections clear navbar on anchor navigation */
+  section[id] {
+    scroll-margin-top: var(--nav-h);
   }
 }
 

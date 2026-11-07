@@ -29,12 +29,12 @@ export default function WhyChooseUs() {
           </h2>
         </div>
 
-        {/* 4 Icon Tiles - Kept to one line each as strictly requested */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* 4 Icon Tiles - Side-scrollable on mobile, Grid on tablet/desktop */}
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-4 pt-1 px-4 -mx-4 sm:px-0 sm:mx-0 no-scrollbar">
           {WHY_CHOOSE_US.map((item) => (
             <div 
               key={item.id}
-              className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group"
+              className="w-[82vw] max-w-[280px] sm:w-auto flex-shrink-0 snap-center bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group"
             >
               {/* Icon Container */}
               <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
