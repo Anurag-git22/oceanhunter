@@ -94,14 +94,14 @@ export default function Navbar() {
           {/* Desktop Right CTAs */}
           <div className="hidden sm:flex items-center space-x-3">
             <a
-              href="tel:9370208843"
+              href="tel:8007017417"
               className={`inline-flex items-center space-x-1.5 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors ${
                 isScrolled ? 'text-navy-800 hover:text-navy' : 'text-white hover:text-oceanTeal-light drop-shadow-sm'
               }`}
-              title="Call Vishal Dongre"
+              title="Call 80070 17417"
             >
               <Phone className="w-4 h-4 text-brandRed" />
-              <span className="hidden lg:inline">93702 08843</span>
+              <span className="hidden lg:inline">80070 17417</span>
               <span className="lg:hidden">Call</span>
             </a>
 
@@ -167,14 +167,14 @@ export default function Navbar() {
 
               {/* Bottom of the Menu */}
               <div className="p-4 pt-3 flex flex-col space-y-2.5 bg-white rounded-b-2xl">
-                {/* Call Vishal: navy text, bold, with red phone */}
+                {/* Call: navy text, bold, with red phone */}
                 <a
-                  href="tel:9370208843"
+                  href="tel:8007017417"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center space-x-2.5 w-full py-3 px-4 rounded-xl border border-[#2B2D8E]/20 text-[#2B2D8E] font-bold text-base bg-[#2B2D8E]/5 hover:bg-[#2B2D8E]/10 transition-colors"
                 >
                   <Phone className="w-5 h-5 text-[#E3262E] flex-shrink-0" />
-                  <span>Call Vishal: 9370208843</span>
+                  <span>Call: 80070 17417</span>
                 </a>
 
                 {/* Book on WhatsApp CTA */}
