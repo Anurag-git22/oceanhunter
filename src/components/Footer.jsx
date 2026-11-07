@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './Logo';
-import { BRAND } from '../data';
-import { Phone, MapPin, Heart, ArrowUp } from 'lucide-react';
+import { BRAND, MAP } from '../data';
+import { Phone, MapPin, Navigation, Heart, ArrowUp } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
@@ -79,7 +79,18 @@ export default function Footer() {
 
               <div className="flex items-start space-x-2 pt-2">
                 <MapPin className="w-4 h-4 text-brandRed flex-shrink-0 mt-0.5" />
-                <span className="text-slate-300">{BRAND.address}</span>
+                <div>
+                  <span className="text-slate-300 block">{BRAND.address}</span>
+                  <a
+                    href={MAP.directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1 text-xs text-oceanTeal-light hover:text-white font-medium underline underline-offset-2 transition-colors mt-1"
+                  >
+                    <Navigation className="w-3 h-3" />
+                    <span>Get Directions</span>
+                  </a>
+                </div>
               </div>
             </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Navigation, ArrowUp } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { BRAND } from '../data';
+import { BRAND, MAP } from '../data';
 
 export default function FloatingActions() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -102,10 +102,12 @@ export default function FloatingActions() {
 
         {/* 3. Directions Button */}
         <a
-          href={BRAND.googleMapsDirectionsUrl}
+          href={MAP.directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex flex-col items-center justify-center py-2 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy text-[11px] font-semibold tracking-tight shadow-sm active:scale-[0.98] transition-transform border border-slate-200"
+          aria-label="Get Directions on Google Maps"
+          title="Get Directions"
         >
           <Navigation className="w-4 h-4 text-oceanTeal mb-0.5" />
           <span>Directions</span>

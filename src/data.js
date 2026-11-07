@@ -1,6 +1,15 @@
 // Ocean Hunter - Data Configuration File
 // Edit this file to update content, packages, gallery items, FAQ, or contact numbers.
 
+// Official Google Map Coordinates & URLs (Centralized Location)
+export const MAP = {
+  lat: 15.9837818,
+  lng: 73.4920502,
+  shortUrl: "https://maps.app.goo.gl/hrepkbfo6YLVpwpc6",
+  embedUrl: "https://www.google.com/maps?q=15.9837818,73.4920502&z=16&output=embed",
+  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=15.9837818,73.4920502"
+};
+
 export const BRAND = {
   name: "OCEAN HUNTER",
   tagline: "Backwater to Ocean",
@@ -9,8 +18,9 @@ export const BRAND = {
   address: "A/P Devbag, Tal. Malvan, Dist. Sindhudurg, Maharashtra",
   whatsappNumber: "919370208843",
   whatsappUrl: "https://wa.me/919370208843",
-  googleMapsDirectionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Devbag+Sangam+Malvan+Maharashtra",
-  googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15383.187893114972!2d73.47952467389868!3d15.967838500201382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc007bbfba4e98f%3A0xe964c23dbfa48b81!2sDevbag%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+  googleMapsDirectionsUrl: MAP.directionsUrl,
+  googleMapsEmbedUrl: MAP.embedUrl,
+  googleMapsShortUrl: MAP.shortUrl,
   contacts: [
     {
       name: "Vishal Dongre",

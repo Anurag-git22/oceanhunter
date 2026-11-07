@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, MapPin, Compass, Navigation, Clock, UserCheck } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { BRAND } from '../data';
+import { BRAND, MAP } from '../data';
 
 export default function Contact() {
   return (
@@ -88,6 +88,15 @@ export default function Contact() {
                   <p className="text-sm font-medium text-white mt-0.5">
                     {BRAND.address}
                   </p>
+                  <a
+                    href={MAP.directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1.5 text-xs text-oceanTeal-light hover:text-white font-semibold underline underline-offset-2 transition-colors mt-2"
+                  >
+                    <Navigation className="w-3.5 h-3.5" />
+                    <span>Get Directions</span>
+                  </a>
                 </div>
               </div>
 
@@ -108,12 +117,12 @@ export default function Contact() {
           <div className="lg:col-span-7 h-full">
             <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-slate-100 h-[380px] sm:h-[480px] lg:h-full min-h-[400px] relative">
               <iframe
-                title="Ocean Hunter Devbag Map"
-                src={BRAND.googleMapsEmbedUrl}
+                title="Ocean Hunter location map"
+                src={MAP.embedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
@@ -128,6 +137,20 @@ export default function Contact() {
                 <p className="text-xs text-slate-600 mt-1 font-medium">
                   Devbag Sangam & Beach, Malvan
                 </p>
+              </div>
+
+              {/* Open in Google Maps Button */}
+              <div className="absolute bottom-4 right-4 z-10">
+                <a
+                  href={MAP.shortUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-white/95 hover:bg-white text-navy font-semibold text-xs sm:text-sm py-2 px-4 rounded-xl shadow-lg border border-slate-200 transition-all hover:scale-105 active:scale-95 backdrop-blur-sm"
+                  aria-label="Open in Google Maps"
+                >
+                  <Navigation className="w-4 h-4 text-brandRed" />
+                  <span>Open in Google Maps</span>
+                </a>
               </div>
             </div>
           </div>

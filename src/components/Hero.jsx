@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, MapPin, Compass, Navigation, ChevronDown } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { BRAND } from '../data';
+import { BRAND, MAP } from '../data';
 
 export default function Hero() {
   return (
@@ -49,7 +49,7 @@ export default function Hero() {
             </div>
             <span className="mx-2 text-white/40 flex-shrink-0">|</span>
             <a 
-              href={BRAND.googleMapsDirectionsUrl}
+              href={MAP.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-1 text-oceanTeal-light hover:text-white font-semibold underline underline-offset-2 transition-colors flex-shrink-0 whitespace-nowrap"
@@ -107,7 +107,7 @@ export default function Hero() {
 
             {/* Desktop Directions Button (Hidden on mobile) */}
             <a
-              href={BRAND.googleMapsDirectionsUrl}
+              href={MAP.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:inline-flex items-center justify-center space-x-2 bg-navy-950/70 hover:bg-navy-900 text-slate-200 hover:text-white border border-white/25 font-semibold text-base px-6 py-3.5 rounded-full transition-all duration-300 shadow-md hover:-translate-y-0.5"
