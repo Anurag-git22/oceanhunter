@@ -45,134 +45,158 @@ export default function Navbar() {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 md:py-3 border-b border-slate-100' 
-          : 'bg-gradient-to-b from-navy-950/80 via-navy-950/30 to-transparent py-2.5 md:py-3 border-b border-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between min-h-[48px] md:min-h-[52px]">
-          {/* Logo */}
-          <Logo variant="navbar" isScrolled={isScrolled} />
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-7 lg:space-x-9">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`text-sm lg:text-base font-medium tracking-wide transition-colors relative group py-1 ${
-                    isScrolled
-                      ? (isActive ? 'text-navy font-bold' : 'text-slate-600 hover:text-navy')
-                      : (isActive ? 'text-white font-bold drop-shadow' : 'text-white/90 hover:text-white drop-shadow-sm')
-                  }`}
-                >
-                  {link.name}
-                  <span 
-                    className={`absolute bottom-0 left-0 h-0.5 bg-brandRed transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}
-                  />
-                </a>
-              );
-            })}
-          </nav>
-
-          {/* Desktop Right CTAs */}
-          <div className="hidden sm:flex items-center space-x-3">
-            <a
-              href="tel:9370208843"
-              className={`inline-flex items-center space-x-1.5 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors ${
-                isScrolled ? 'text-navy-800 hover:text-navy' : 'text-white hover:text-oceanTeal-light drop-shadow-sm'
-              }`}
-              title="Call Vishal Dongre"
-            >
-              <Phone className="w-4 h-4 text-brandRed" />
-              <span className="hidden lg:inline">93702 08843</span>
-              <span className="lg:hidden">Call</span>
-            </a>
-
-            <a
-              href="#packages"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <CalendarCheck className="w-4 h-4" />
-              <span>Book Now</span>
-            </a>
-          </div>
-
-          {/* Mobile Menu Hamburger Button */}
-          <div className="flex md:hidden items-center space-x-2 flex-shrink-0">
-            <a
-              href="#packages"
-              className="bg-brandRed hover:bg-brandRed-hover text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm sm:hidden transition-all flex-shrink-0"
-            >
-              Book Now
-            </a>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-1.5 sm:p-2 rounded-lg transition-colors focus:outline-none ${
-                isScrolled ? 'text-navy hover:bg-slate-100' : 'text-white hover:bg-white/10'
-              }`}
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
+    <>
+      {/* Dark semi-transparent backdrop behind the menu (fixed inset-0 bg-black/40) */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/98 border-t border-slate-100 px-4 pt-3 pb-6 shadow-xl backdrop-blur-xl animate-in slide-in-from-top-4 duration-200">
-          <div className="flex flex-col space-y-2">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`font-medium text-base py-2.5 px-3 rounded-lg transition-colors border-l-2 ${
-                    isActive 
-                      ? 'text-navy font-bold bg-navy-50/70 border-brandRed' 
-                      : 'text-slate-700 hover:text-navy hover:bg-slate-50 border-transparent hover:border-brandRed'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              );
-            })}
+        <div
+          onClick={() => setMobileMenuOpen(false)}
+          className="fixed inset-0 bg-black/40 z-40 md:hidden animate-backdrop-fade"
+          aria-hidden="true"
+        />
+      )}
 
-            <div className="pt-3 border-t border-slate-100 flex flex-col space-y-2">
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled || mobileMenuOpen
+            ? 'bg-white shadow-md py-2.5 md:py-3 border-b border-slate-100' 
+            : 'bg-gradient-to-b from-navy-950/80 via-navy-950/30 to-transparent py-2.5 md:py-3 border-b border-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between min-h-[48px] md:min-h-[52px]">
+            {/* Logo */}
+            <Logo variant="navbar" isScrolled={isScrolled || mobileMenuOpen} />
+
+            {/* Desktop Navigation Links */}
+            <nav className="hidden md:flex items-center space-x-7 lg:space-x-9">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`text-sm lg:text-base font-medium tracking-wide transition-colors relative group py-1 ${
+                      isScrolled
+                        ? (isActive ? 'text-navy font-bold' : 'text-slate-600 hover:text-navy')
+                        : (isActive ? 'text-white font-bold drop-shadow' : 'text-white/90 hover:text-white drop-shadow-sm')
+                    }`}
+                  >
+                    {link.name}
+                    <span 
+                      className={`absolute bottom-0 left-0 h-0.5 bg-brandRed transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    />
+                  </a>
+                );
+              })}
+            </nav>
+
+            {/* Desktop Right CTAs */}
+            <div className="hidden sm:flex items-center space-x-3">
               <a
                 href="tel:9370208843"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center space-x-2 w-full py-2.5 px-4 rounded-xl border border-navy/20 text-navy font-semibold text-sm bg-navy/5"
+                className={`inline-flex items-center space-x-1.5 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors ${
+                  isScrolled ? 'text-navy-800 hover:text-navy' : 'text-white hover:text-oceanTeal-light drop-shadow-sm'
+                }`}
+                title="Call Vishal Dongre"
               >
                 <Phone className="w-4 h-4 text-brandRed" />
-                <span>Call Vishal: 93702 08843</span>
+                <span className="hidden lg:inline">93702 08843</span>
+                <span className="lg:hidden">Call</span>
               </a>
+
               <a
-                href={BRAND.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center space-x-2 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-brandRed to-red-600 text-white font-semibold text-sm shadow-md"
-                aria-label="Book on WhatsApp"
-                title="Book on WhatsApp"
+                href="#packages"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <FaWhatsapp className="w-4 h-4 text-white" />
-                <span>Book on WhatsApp</span>
+                <CalendarCheck className="w-4 h-4" />
+                <span>Book Now</span>
               </a>
+            </div>
+
+            {/* Mobile Menu Hamburger Button */}
+            <div className="flex md:hidden items-center space-x-2 flex-shrink-0">
+              <a
+                href="#packages"
+                className="bg-brandRed hover:bg-brandRed-hover text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm sm:hidden transition-all flex-shrink-0"
+              >
+                Book Now
+              </a>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={`p-1.5 sm:p-2 rounded-lg transition-colors focus:outline-none ${
+                  isScrolled || mobileMenuOpen ? 'text-navy hover:bg-slate-100' : 'text-white hover:bg-white/10'
+                }`}
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
           </div>
         </div>
-      )}
-    </header>
+
+        {/* 
+          Mobile Menu Panel:
+          - Solid white background (bg-white, 100% opaque, no transparency, no blur)
+          - Full width, directly under navbar, soft shadow (shadow-xl), rounded bottom corners (rounded-b-2xl)
+          - Max-height: calc(100svh - navbar height) with overflow-y-auto
+          - Smooth open/close animation (slide down + fade, 200ms)
+        */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden absolute top-full left-0 right-0 w-full bg-white shadow-xl rounded-b-2xl overflow-y-auto border-t border-gray-100 animate-menu-slide-down"
+            style={{ maxHeight: 'calc(100svh - 68px)' }}
+          >
+            <div className="flex flex-col">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`w-full min-h-[48px] py-[14px] px-6 text-[18px] font-medium transition-colors border-b border-gray-200 flex items-center ${
+                      isActive 
+                        ? 'text-[#2B2D8E] font-semibold bg-[#2B2D8E]/10 border-l-[3px] border-l-[#E3262E]' 
+                        : 'text-[#2B2D8E] border-l-[3px] border-l-transparent hover:bg-slate-50'
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                );
+              })}
+
+              {/* Bottom of the Menu */}
+              <div className="p-4 pt-3 flex flex-col space-y-2.5 bg-white rounded-b-2xl">
+                {/* Call Vishal: navy text, bold, with red phone */}
+                <a
+                  href="tel:9370208843"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center space-x-2.5 w-full py-3 px-4 rounded-xl border border-[#2B2D8E]/20 text-[#2B2D8E] font-bold text-base bg-[#2B2D8E]/5 hover:bg-[#2B2D8E]/10 transition-colors"
+                >
+                  <Phone className="w-5 h-5 text-[#E3262E] flex-shrink-0" />
+                  <span>Call Vishal: 9370208843</span>
+                </a>
+
+                {/* Book on WhatsApp CTA */}
+                <a
+                  href={BRAND.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center space-x-2.5 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brandRed to-red-600 hover:from-brandRed-hover hover:to-red-700 text-white font-semibold text-base shadow-md transition-all active:scale-[0.99]"
+                  aria-label="Book on WhatsApp"
+                  title="Book on WhatsApp"
+                >
+                  <FaWhatsapp className="w-5 h-5 text-white flex-shrink-0" />
+                  <span>Book on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   );
 }
